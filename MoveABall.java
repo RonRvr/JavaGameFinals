@@ -13,7 +13,6 @@ public class MoveABall extends JFrame implements KeyListener{
 
 	public MoveABall(){
 		this.draw = new Drawing();
-
 	}
 	
 	public void keyPressed(KeyEvent e){
@@ -34,10 +33,9 @@ public class MoveABall extends JFrame implements KeyListener{
 			System.out.print("Forwarding");
 		}
 	}
-
+	
 	public void keyTyped(KeyEvent e){
 	}
-
 	public void keyReleased(KeyEvent e){
 	}
 

@@ -10,6 +10,9 @@ public class Drawing extends JComponent{
 	
 	public int x = 200;
 	public int y = 420;
+
+	public int x1 = 400;
+	public int y1 = 420;
 	
 	
 	public int state = 0;
@@ -108,10 +111,31 @@ public class Drawing extends JComponent{
                    
                     if(astate==8){
                         resource = getClass().getResource("crouch6.png");
-
                     }
                     else{
                         resource = getClass().getResource("crouch"+astate+".png");
+                    }
+                    try{
+                        image = ImageIO.read(resource);
+                    }
+                    catch(IOException e){
+                        e.printStackTrace();
+                    }
+                    repaint();    
+                    try{
+                        Thread.sleep(30);
+                    }
+                    catch(InterruptedException e){
+
+                    }
+                }
+                 for(int astate = 0;astate<7;astate++){
+                   
+                    if(astate==8){
+                        resource = getClass().getResource("crouchRight6.png");
+                    }
+                    else{
+                        resource = getClass().getResource("crouchRight"+astate+".png");
                     }
                     try{
                         image = ImageIO.read(resource);
@@ -166,6 +190,7 @@ public class Drawing extends JComponent{
 		super.paintComponent(g);
 		g.drawImage(bground,0,0,1366,720,this);
 		g.drawImage(image,x,y,250,220,this);
+		g.drawImage(image,x1,y1,250,220,this);
 		g.drawImage(imageL,x,y,this);
 		g.drawImage(crouch,x,y,this);
 	}
