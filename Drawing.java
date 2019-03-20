@@ -104,10 +104,10 @@ public class Drawing extends JComponent{
 	public void attackAnimation(){
         Thread thread1 = new Thread(new Runnable(){
             public void run(){  
-                for(int astate = 0;astate<4;astate++){
+                for(int astate = 0;astate<7;astate++){
                    
-                    if(astate==5){
-                        resource = getClass().getResource("crouch3.png");
+                    if(astate==8){
+                        resource = getClass().getResource("crouch6.png");
 
                     }
                     else{
@@ -121,7 +121,7 @@ public class Drawing extends JComponent{
                     }
                     repaint();    
                     try{
-                        Thread.sleep(100);    
+                        Thread.sleep(30);
                     }
                     catch(InterruptedException e){
 
@@ -141,21 +141,21 @@ public class Drawing extends JComponent{
 		repaint();
 	}
 	public void moveLeft(){
-		if(x<=-10){
+		if(x<=5){
 			x=x;
 		}
 		else{
-			x=x -25;
+			x=x -15;
 			runLeft();
 			repaint();
 		}
 	}
 	public void moveRight(){
-		if(x>=1120){
+		if(x>=1090){
 			x=x;
 		}
 		else{
-			x=x +25;
+			x=x +15;
 			reloadImage();
 			repaint();
 		}
@@ -167,6 +167,6 @@ public class Drawing extends JComponent{
 		g.drawImage(bground,0,0,1366,720,this);
 		g.drawImage(image,x,y,250,220,this);
 		g.drawImage(imageL,x,y,this);
-		g.drawImage(crouch,x,y,0,0,this);
+		g.drawImage(crouch,x,y,this);
 	}
 }
