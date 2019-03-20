@@ -167,6 +167,6 @@ public class Drawing extends JComponent{
 		g.drawImage(bground,0,0,1366,720,this);
 		g.drawImage(image,x,y,250,220,this);
 		g.drawImage(imageL,x,y,this);
-		g.drawImage(crouch,x,y,250,220,this);
+		g.drawImage(crouch,x,y,0,0,this);
 	}
 }
