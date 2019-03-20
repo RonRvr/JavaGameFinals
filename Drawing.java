@@ -185,6 +185,34 @@ public class Drawing extends JComponent{
 		}
 	}
 
+	public void moveUp1(){
+		reloadImage();
+		repaint();
+	}
+	public void moveDown1(){
+		attackAnimation();
+		repaint();
+	}
+	public void moveLeft1(){
+		if(x1<=5){
+			x1=x1;
+		}
+		else{
+			x1=x1 -15;
+			runLeft();
+			repaint();
+		}
+	}
+	public void moveRight1(){
+		if(x1>=1090){
+			x1=x1;
+		}
+		else{
+			x1=x1 +15;
+			reloadImage();
+			repaint();
+		}
+	}
 
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);

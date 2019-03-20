@@ -32,6 +32,23 @@ public class MoveABall extends JFrame implements KeyListener{
 			draw.moveRight();
 			System.out.print("Forwarding");
 		}
+
+		if(e.getKeyCode() == KeyEvent.VK_W){
+			draw.moveUp1();
+			System.out.print("Upward");
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_S){
+			draw.moveDown1();
+			System.out.print("Crouches");
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_A){
+			draw.moveLeft1();
+			System.out.print("Backing");
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_D){
+			draw.moveRight1();
+			System.out.print("Forwarding");
+		}
 	}
 	
 	public void keyTyped(KeyEvent e){
