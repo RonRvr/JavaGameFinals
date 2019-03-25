@@ -53,9 +53,13 @@ public class ChickenFight extends JFrame implements KeyListener{
 		}
 	}
 	
-	public void keyTyped(KeyEvent e){
-	}
 	public void keyReleased(KeyEvent e){
+		if(e.getKeyCode() == KeyEvent.VK_DOWN){
+			draw.moveLeft1();
+			System.out.print("Crouches");
+		}
+	}
+		public void keyTyped(KeyEvent e){
 	}
 
 	public static void  main (String args[]){
