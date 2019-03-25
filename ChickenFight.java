@@ -5,13 +5,15 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import javax.sound.sampled.*;
+import java.applet.Applet;
 
 
-public class MoveABall extends JFrame implements KeyListener{
+public class ChickenFight extends JFrame implements KeyListener{
 
 	public Drawing draw;
 
-	public MoveABall(){
+	public ChickenFight(){
 		this.draw = new Drawing();
 	}
 	
@@ -57,7 +59,7 @@ public class MoveABall extends JFrame implements KeyListener{
 	}
 
 	public static void  main (String args[]){
-		MoveABall myFrame = new MoveABall();
+		ChickenFight myFrame = new ChickenFight();
 		myFrame.setSize(1366,720);
 		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		myFrame.setVisible(true);

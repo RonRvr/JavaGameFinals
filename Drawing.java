@@ -5,6 +5,8 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.applet.Applet;
+import javax.sound.sampled.*;
 
 public class Drawing extends JComponent{
 	
@@ -14,21 +16,28 @@ public class Drawing extends JComponent{
 	public int x1 = 400;
 	public int y1 = 420;
 	
-	
 	public int state = 0;
+	public int state1 = 0;
 
 	public BufferedImage image;
 	public URL resource = getClass().getResource("run0.png");
-	
+	public BufferedImage image1;
+	public URL resource1 = getClass().getResource("run0.png");
+
 	public BufferedImage crouch;
 	public URL crch = getClass().getResource("crouch0.png");
+	public BufferedImage crouch1;
+	public URL crch1 = getClass().getResource("crouch0.png");
 	
 	public BufferedImage bground;
 	public URL bg = getClass().getResource("bground.png");
+	public BufferedImage bground1;
+	public URL bg1 = getClass().getResource("bground.png");
 
 	public BufferedImage imageL;
 	public URL lefty = getClass().getResource("RunLeft0.png");
-
+	public BufferedImage imageL1;
+	public URL lefty1 = getClass().getResource("RunLeft0.png");
 
 	public Drawing(){
 		try{
@@ -40,8 +49,8 @@ public class Drawing extends JComponent{
 		}
 	}
 
-	public void reloadImage(){
-		
+    /*Chicken 1*/
+	public void ChickenRight(){
 		if(state == 0){
 			resource = getClass().getResource("run0.png");
 		}
@@ -61,9 +70,7 @@ public class Drawing extends JComponent{
 			resource = getClass().getResource("run5.png");
 			state = 0;
 		}
-
 		state++;
-
 		try{
 			image = ImageIO.read(resource);
 		}
@@ -72,8 +79,7 @@ public class Drawing extends JComponent{
 		}
 	}
 
-	public void runLeft(){
-		
+	public void ChickenLeft(){
 		if(state == 0){
 			resource = getClass().getResource("RunLeft0.png");
 		}
@@ -93,9 +99,7 @@ public class Drawing extends JComponent{
 			resource = getClass().getResource("RunLeft5.png");
 			state = 0;
 		}
-		
 		state++;
-
 		try{
 			image = ImageIO.read(resource);
 		}
@@ -105,7 +109,7 @@ public class Drawing extends JComponent{
 	}
 
 	public void attackAnimation(){
-        Thread thread1 = new Thread(new Runnable(){
+        Thread thread = new Thread(new Runnable(){
             public void run(){  
                 for(int astate = 0;astate<7;astate++){
                    
@@ -148,16 +152,15 @@ public class Drawing extends JComponent{
                         Thread.sleep(30);
                     }
                     catch(InterruptedException e){
-
                     }
                 }
             }
         });
-        thread1.start();
+        thread.start();
     }
 
 	public void moveUp(){
-		reloadImage();
+		ChickenRight();
 		repaint();
 	}
 	public void moveDown(){
@@ -170,7 +173,7 @@ public class Drawing extends JComponent{
 		}
 		else{
 			x=x -15;
-			runLeft();
+			ChickenLeft();
 			repaint();
 		}
 	}
@@ -180,17 +183,127 @@ public class Drawing extends JComponent{
 		}
 		else{
 			x=x +15;
-			reloadImage();
+			ChickenRight();
 			repaint();
 		}
 	}
 
+	/*Chicken 2*/
+    public void ChickenRight1(){
+		if(state1 == 0){
+			resource1 = getClass().getResource("run0.png");
+		}
+		else if(state1 == 1){
+			resource1 = getClass().getResource("run1.png");
+		}
+		else if(state1 == 2){
+			resource1 = getClass().getResource("run2.png");
+		}
+		else if(state1 == 3){
+			resource1 = getClass().getResource("run3.png");
+		}
+		else if(state1 == 4){
+			resource1 = getClass().getResource("run4.png");
+		}
+		else if(state1 == 5){
+			resource1 = getClass().getResource("run5.png");
+			state1 = 0;
+		}
+		state1++;
+		try{
+			image1 = ImageIO.read(resource1);
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void ChickenLeft1(){
+		if(state1 == 0){
+			resource1 = getClass().getResource("RunLeft0.png");
+		}
+		else if(state1 == 1){
+			resource1 = getClass().getResource("RunLeft1.png");
+		}
+		else if(state1 == 2){
+			resource1 = getClass().getResource("RunLeft2.png");
+		}
+		else if(state1 == 3){
+			resource1 = getClass().getResource("RunLeft3.png");
+		}
+		else if(state1 == 4){
+			resource1 = getClass().getResource("RunLeft4.png");
+		}
+		else if(state1 == 5){
+			resource1 = getClass().getResource("RunLeft5.png");
+			state1 = 0;
+		}
+		state1++;
+		try{
+			image1 = ImageIO.read(resource1);
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void attackAnimation1(){
+        Thread thread1 = new Thread(new Runnable(){
+            public void run(){  
+                for(int astate1 = 0;astate1<7;astate1++){
+                   
+                    if(astate1==8){
+                        resource1 = getClass().getResource("crouch6.png");
+                    }
+                    else{
+                        resource1 = getClass().getResource("crouch"+astate1+".png");
+                    }
+                    try{
+                        image1 = ImageIO.read(resource1);
+                    }
+                    catch(IOException e){
+                        e.printStackTrace();
+                    }
+                    repaint();    
+                    try{
+                        Thread.sleep(30);
+                    }
+                    catch(InterruptedException e){
+
+                    }
+                }
+                 for(int astate1 = 0;astate1<7;astate1++){
+                   
+                    if(astate1==8){
+                        resource1 = getClass().getResource("crouchRight6.png");
+                    }
+                    else{
+                        resource1 = getClass().getResource("crouchRight"+astate1+".png");
+                    }
+                    try{
+                        image1 = ImageIO.read(resource1);
+                    }
+                    catch(IOException e){
+                        e.printStackTrace();
+                    }
+                    repaint();    
+                    try{
+                        Thread.sleep(30);
+                    }
+                    catch(InterruptedException e){
+                    }
+                }
+            }
+        });
+        thread1.start();
+    }
+
 	public void moveUp1(){
-		reloadImage();
+		ChickenRight1();
 		repaint();
 	}
 	public void moveDown1(){
-		attackAnimation();
+		attackAnimation1();
 		repaint();
 	}
 	public void moveLeft1(){
@@ -199,7 +312,7 @@ public class Drawing extends JComponent{
 		}
 		else{
 			x1=x1 -15;
-			runLeft();
+			ChickenLeft1();
 			repaint();
 		}
 	}
@@ -209,7 +322,7 @@ public class Drawing extends JComponent{
 		}
 		else{
 			x1=x1 +15;
-			reloadImage();
+			ChickenRight1();
 			repaint();
 		}
 	}
@@ -218,7 +331,7 @@ public class Drawing extends JComponent{
 		super.paintComponent(g);
 		g.drawImage(bground,0,0,1366,720,this);
 		g.drawImage(image,x,y,250,220,this);
-		g.drawImage(image,x1,y1,250,220,this);
+		g.drawImage(image1,x1,y1,250,220,this);
 		g.drawImage(imageL,x,y,this);
 		g.drawImage(crouch,x,y,this);
 	}
