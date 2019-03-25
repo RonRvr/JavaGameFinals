@@ -10,10 +10,10 @@ import javax.sound.sampled.*;
 
 public class Drawing extends JComponent{
 	
-	public int x = 200;
+	public int x = 150;
 	public int y = 420;
 
-	public int x1 = 400;
+	public int x1 = 950;
 	public int y1 = 420;
 	
 	public int state = 0;
@@ -22,7 +22,7 @@ public class Drawing extends JComponent{
 	public BufferedImage player;
 	public URL resource = getClass().getResource("run0.png");
 	public BufferedImage player1;
-	public URL resource1 = getClass().getResource("run0.png");
+	public URL resource1 = getClass().getResource("RunLeft0.png");
 
 	public BufferedImage crouch;
 	public URL crch = getClass().getResource("crouch0.png");
@@ -42,6 +42,7 @@ public class Drawing extends JComponent{
 	public Drawing(){
 		try{
 			player = ImageIO.read(resource);
+			player1 = ImageIO.read(resource1);
 			bground = ImageIO.read(bg);
 		}
 		catch(IOException e){
