@@ -19,9 +19,9 @@ public class Drawing extends JComponent{
 	public int state = 0;
 	public int state1 = 0;
 
-	public BufferedImage image;
+	public BufferedImage player;
 	public URL resource = getClass().getResource("run0.png");
-	public BufferedImage image1;
+	public BufferedImage player1;
 	public URL resource1 = getClass().getResource("run0.png");
 
 	public BufferedImage crouch;
@@ -41,7 +41,7 @@ public class Drawing extends JComponent{
 
 	public Drawing(){
 		try{
-			image = ImageIO.read(resource);
+			player = ImageIO.read(resource);
 			bground = ImageIO.read(bg);
 		}
 		catch(IOException e){
@@ -72,7 +72,7 @@ public class Drawing extends JComponent{
 		}
 		state++;
 		try{
-			image = ImageIO.read(resource);
+			player = ImageIO.read(resource);
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class Drawing extends JComponent{
 		}
 		state++;
 		try{
-			image = ImageIO.read(resource);
+			player = ImageIO.read(resource);
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -120,7 +120,7 @@ public class Drawing extends JComponent{
                         resource = getClass().getResource("crouch"+astate+".png");
                     }
                     try{
-                        image = ImageIO.read(resource);
+                        player = ImageIO.read(resource);
                     }
                     catch(IOException e){
                         e.printStackTrace();
@@ -142,7 +142,7 @@ public class Drawing extends JComponent{
                         resource = getClass().getResource("crouchRight"+astate+".png");
                     }
                     try{
-                        image = ImageIO.read(resource);
+                        player = ImageIO.read(resource);
                     }
                     catch(IOException e){
                         e.printStackTrace();
@@ -211,7 +211,7 @@ public class Drawing extends JComponent{
 		}
 		state1++;
 		try{
-			image1 = ImageIO.read(resource1);
+			player1 = ImageIO.read(resource1);
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -240,7 +240,7 @@ public class Drawing extends JComponent{
 		}
 		state1++;
 		try{
-			image1 = ImageIO.read(resource1);
+			player1 = ImageIO.read(resource1);
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -259,7 +259,7 @@ public class Drawing extends JComponent{
                         resource1 = getClass().getResource("crouch"+astate1+".png");
                     }
                     try{
-                        image1 = ImageIO.read(resource1);
+                        player1 = ImageIO.read(resource1);
                     }
                     catch(IOException e){
                         e.printStackTrace();
@@ -281,7 +281,7 @@ public class Drawing extends JComponent{
                         resource1 = getClass().getResource("crouchRight"+astate1+".png");
                     }
                     try{
-                        image1 = ImageIO.read(resource1);
+                     	player1 = ImageIO.read(resource1);
                     }
                     catch(IOException e){
                         e.printStackTrace();
@@ -330,8 +330,8 @@ public class Drawing extends JComponent{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(bground,0,0,1366,720,this);
-		g.drawImage(image,x,y,250,220,this);
-		g.drawImage(image1,x1,y1,250,220,this);
+		g.drawImage(player,x,y,250,220,this);
+		g.drawImage(player1,x1,y1,250,220,this);
 		g.drawImage(imageL,x,y,this);
 		g.drawImage(crouch,x,y,this);
 	}
