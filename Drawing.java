@@ -24,10 +24,10 @@ public class Drawing extends JComponent{
 	public BufferedImage player1;
 	public URL resource1 = getClass().getResource("RunLeft0.png");
 
-	public BufferedImage crouch;
-	public URL crch = getClass().getResource("crouch0.png");
-	public BufferedImage crouch1;
-	public URL crch1 = getClass().getResource("crouch0.png");
+	public BufferedImage attack;
+	public URL crch = getClass().getResource("Attack0.png");
+	public BufferedImage attack1;
+	public URL crch1 = getClass().getResource("Attack0.png");
 	
 	public BufferedImage bground;
 	public URL bg = getClass().getResource("bground.png");
@@ -115,10 +115,10 @@ public class Drawing extends JComponent{
                 for(int astate = 0;astate<7;astate++){
                    
                     if(astate==8){
-                        resource = getClass().getResource("crouch6.png");
+                        resource = getClass().getResource("Attack6.png");
                     }
                     else{
-                        resource = getClass().getResource("crouch"+astate+".png");
+                        resource = getClass().getResource("Attack"+astate+".png");
                     }
                     try{
                         player = ImageIO.read(resource);
@@ -137,10 +137,10 @@ public class Drawing extends JComponent{
                  for(int astate = 0;astate<7;astate++){
                    
                     if(astate==8){
-                        resource = getClass().getResource("crouchRight6.png");
+                        resource = getClass().getResource("AttackRight6.png");
                     }
                     else{
-                        resource = getClass().getResource("crouchRight"+astate+".png");
+                        resource = getClass().getResource("AttackRight"+astate+".png");
                     }
                     try{
                         player = ImageIO.read(resource);
@@ -164,7 +164,7 @@ public class Drawing extends JComponent{
 		ChickenRight();
 		repaint();
 	}
-	public void moveDown(){
+	public void moveAttack(){
 		attackAnimation();
 		repaint();
 	}
@@ -252,12 +252,11 @@ public class Drawing extends JComponent{
         Thread thread1 = new Thread(new Runnable(){
             public void run(){  
                 for(int astate1 = 0;astate1<7;astate1++){
-                   
                     if(astate1==8){
-                        resource1 = getClass().getResource("crouch6.png");
+                        resource1 = getClass().getResource("Attack6.png");
                     }
                     else{
-                        resource1 = getClass().getResource("crouch"+astate1+".png");
+                        resource1 = getClass().getResource("Attack"+astate1+".png");
                     }
                     try{
                         player1 = ImageIO.read(resource1);
@@ -270,16 +269,15 @@ public class Drawing extends JComponent{
                         Thread.sleep(30);
                     }
                     catch(InterruptedException e){
-
                     }
                 }
                  for(int astate1 = 0;astate1<7;astate1++){
                    
                     if(astate1==8){
-                        resource1 = getClass().getResource("crouchRight6.png");
+                        resource1 = getClass().getResource("AttackRight6.png");
                     }
                     else{
-                        resource1 = getClass().getResource("crouchRight"+astate1+".png");
+                        resource1 = getClass().getResource("AttackRight"+astate1+".png");
                     }
                     try{
                      	player1 = ImageIO.read(resource1);
@@ -303,7 +301,7 @@ public class Drawing extends JComponent{
 		ChickenRight1();
 		repaint();
 	}
-	public void moveDown1(){
+	public void moveAttack1(){
 		attackAnimation1();
 		repaint();
 	}
@@ -334,6 +332,7 @@ public class Drawing extends JComponent{
 		g.drawImage(player,x,y,250,220,this);
 		g.drawImage(player1,x1,y1,250,220,this);
 		g.drawImage(imageL,x,y,this);
-		g.drawImage(crouch,x,y,this);
+		g.drawImage(attack,x,y,this);
+		g.drawImage(attack1,x,y,this);
 	}
 }
