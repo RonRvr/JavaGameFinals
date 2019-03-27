@@ -112,8 +112,7 @@ public class Drawing extends JComponent{
 	public void attackAnimation(){
         Thread thread = new Thread(new Runnable(){
             public void run(){  
-                for(int astate = 0;astate<7;astate++){
-                   
+                for(int astate = 0;astate<7;astate++){      
                     if(astate==8){
                         resource = getClass().getResource("Attack6.png");
                     }
