@@ -32,7 +32,11 @@ public class Drawing extends JComponent{
 	public BufferedImage bground;
 	public URL bg = getClass().getResource("bground.png");
 	public BufferedImage bground1;
-	public URL bg1 = getClass().getResource("bground.png");
+	public URL bg1 = getClass().getResource("hud.png");
+	public BufferedImage bground2;
+	public URL bg2 = getClass().getResource("hud1.png");
+	public BufferedImage bground3;
+	public URL bg3 = getClass().getResource("hud2.png");
 
 	public BufferedImage imageL;
 	public URL lefty = getClass().getResource("RunLeft0.png");
@@ -44,6 +48,10 @@ public class Drawing extends JComponent{
 			player = ImageIO.read(resource);
 			player1 = ImageIO.read(resource1);
 			bground = ImageIO.read(bg);
+			bground1 = ImageIO.read(bg1);
+			bground2 = ImageIO.read(bg2);
+			bground3 = ImageIO.read(bg3);
+
 		}
 		catch(IOException e){
 			e.printStackTrace();
@@ -328,6 +336,9 @@ public class Drawing extends JComponent{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		g.drawImage(bground,0,0,1366,720,this);
+		g.drawImage(bground1,20,20,450,300,this);
+		g.drawImage(bground2,870,-40,450,300,this);
+		g.drawImage(bground3,580,30,190,90,this);
 		g.drawImage(player,x,y,250,220,this);
 		g.drawImage(player1,x1,y1,250,220,this);
 		g.drawImage(imageL,x,y,this);
